@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff0f5" />
+  <title>Happy Birthday, Akshaya!</title>
+  <style>
+    :root {
+      --pink: #f6a9c2;
+      --deep: #a83e68;
+      --ink: #563747;
+      --cream: #fff8f4;
+      --lavender: #eee7ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink);
+      font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+      background: linear-gradient(180deg, #fff0f5 0%, #fff9f1 48%, #f7f0ff 100%);
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    .page { width: min(760px, 100%); margin: auto; padding: 24px 18px 70px; }
+    section {
+      min-height: 82vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 52px 10px; position: relative;
+    }
+    .eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size: .75rem; color: #a36b82; }
+    h1, h2, p { margin-top: 0; }
+    h1 { font-size: clamp(2.5rem, 11vw, 5.2rem); line-height: .98; color: var(--deep); margin: 12px 0; }
+    h2 { font-size: clamp(2rem, 7vw, 3.1rem); color: var(--deep); margin-bottom: 12px; }
+    p { line-height: 1.7; max-width: 590px; }
+    .sub { font-size: 1.08rem; color: #8b6072; }
+    .card {
+      width: 100%; background: rgba(255,255,255,.78); border: 1px solid rgba(168,62,104,.12);
+      border-radius: 28px; padding: 28px 22px; box-shadow: 0 16px 45px rgba(128,72,99,.09);
+      backdrop-filter: blur(8px);
+    }
+    .cake { font-size: clamp(5rem, 22vw, 9rem); filter: drop-shadow(0 12px 12px #e8b4c4); animation: bob 2.5s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(-9px) rotate(2deg); } }
+    .btn {
+      border: 0; border-radius: 999px; padding: 14px 24px; color: white;
+      background: linear-gradient(135deg, #e982a7, #b64c78); box-shadow: 0 8px 18px #d78aa866;
+      margin-top: 12px; font-weight: 700;
+    }
+    .btn:focus-visible, .balloon:focus-visible { outline: 3px solid #7440a2; outline-offset: 4px; }
+    .balloons { display: grid; grid-template-columns: repeat(2, minmax(110px, 1fr)); gap: 18px; width: min(440px, 100%); margin: 24px auto; }
+    .balloon {
+      border: 0; background: transparent; display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--ink); padding: 8px; transition: transform .2s;
+    }
+    .balloon:hover { transform: translateY(-5px); }
+    .balloon-shape {
+      width: 90px; height: 112px; border-radius: 52% 48% 48% 52% / 42% 43% 57% 58%;
+      display: grid; place-items: center; font-size: 2rem; color: white;
+      box-shadow: inset -10px -12px 0 #00000010, 0 10px 18px #00000012; position: relative;
+    }
+    .balloon-shape::after { content: ""; position: absolute; width: 1px; height: 36px; background: #a98a98; top: 108px; }
+    .b1 { background: #ef8eb0; } .b2 { background: #9d8bd5; }
+    .b3 { background: #efc46e; } .b4 { background: #7fb8c8; }
+    .balloon.popped .balloon-shape { animation: pop .28s forwards; }
+    @keyframes pop { to { transform: scale(1.55); opacity: 0; } }
+    .message {
+      display: none; background: white; border-radius: 18px; padding: 18px;
+      width: min(440px, 100%); margin: 10px auto; box-shadow: 0 8px 24px #0000000d;
+      animation: appear .35s ease both;
+    }
+    .message.show { display: block; }
+    @keyframes appear { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; width: 100%; margin-top: 20px; }
+    .photo {
+      aspect-ratio: 1 / 1; border-radius: 18px; overflow: hidden; background: #f4dce6;
+      display: grid; place-items: center; color: #925c73; border: 2px dashed #dfa5bb;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo span { padding: 12px; font-size: .9rem; }
+    .letter { text-align: left; white-space: pre-line; }
+    .letter p { max-width: none; }
+    .heart { font-size: 2rem; color: #d65d89; }
+    .tiny { font-size: .85rem; color: #9b7c89; }
+    .sparkle { position: absolute; opacity: .45; font-size: 1.4rem; pointer-events: none; }
+    .s1 { top: 12%; left: 7%; } .s2 { top: 20%; right: 8%; } .s3 { bottom: 14%; left: 12%; }
+    @media (min-width: 600px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section id="welcome">
+      <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span>
+      <div class="eyebrow">A little surprise made just for you</div>
+      <h1>It's your<br>birthday!</h1>
+      <h2 id="friend-name">AKSHAYA</h2>
+      <p class="sub">Today is all about you. Ready for a tiny birthday adventure?</p>
+      <button class="btn" onclick="goTo('cake')">Let's go ✨</button>
+    </section>
+
+    <section id="cake">
+      <div class="card">
+        <div class="eyebrow">First things first</div>
+        <div class="cake" aria-label="Birthday cake">🎂</div>
+        <h2>Cake first, obviously!</h2>
+        <p class="sub">Make a wish, birthday girl. You deserve the biggest slice of happiness.</p>
+        <button class="btn" onclick="goTo('balloons')">Done! What's next?</button>
+      </div>
+    </section>
+
+    <section id="balloons">
+      <span class="sparkle s1">✧</span><span class="sparkle s2">✦</span>
+      <h2>Pop the balloons! 🎈</h2>
+      <p class="sub">There are four little notes waiting for you. Tap each balloon.</p>
+      <div class="balloons" id="balloon-list"></div>
+      <div id="balloon-message" class="message" aria-live="polite"></div>
+      <p class="tiny" id="balloon-count">0 of 4 popped</p>
+      <button class="btn" onclick="goTo('memories')">Keep going →</button>
+    </section>
+
+    <section id="memories">
+      <div class="eyebrow">Little moments, big memories</div>
+      <h2>A few memories 📸</h2>
+      <p class="sub">A tiny collection of moments worth keeping.</p>
+      <div class="gallery" id="gallery"></div>
+      <button class="btn" onclick="goTo('more')">Keep going →</button>
+    </section>
+
+    <section id="more">
+      <div class="card">
+        <div class="heart">♡</div>
+        <h2>Keep going...</h2>
+        <p class="sub">The best part is saved for last.</p>
+        <button class="btn" onclick="goTo('wish')">One last thing 💌</button>
+      </div>
+    </section>
+
+    <section id="wish">
+      <div class="card letter">
+        <div class="eyebrow">A birthday note for you</div>
+        <h2>Happy Birthday, Akshaya! ❤️</h2>
+        <div id="birthday-letter"></div>
+        <p class="heart" style="text-align:center; margin:22px 0 0;">♡</p>
+      </div>
+      <p class="tiny">Made with a little extra love ✨</p>
+    </section>
+  </main>
+
+  <script>
+    /*
+      CUSTOMISE THIS SECTION:
+      1) Change the name.
+      2) Replace the four balloon messages.
+      3) Add your photos in the photos folder and update the file names below.
+      4) Replace the birthday letter with your own words.
+    */
+    const birthday = {
+      name: "AKSHAYA",
+      balloonMessages: [
+        "Your first custom message goes here. Add an inside joke or a sweet memory.",
+        "Your second message goes here. Tell her something you appreciate about her.",
+        "Your third message goes here. Add a funny moment or a little secret compliment.",
+        "Your fourth message goes here. Save your most special short note for this one."
+      ],
+      photos: [
+        { file: "photos/photo1.jpg", caption: "Memory one" },
+        { file: "photos/photo2.jpg", caption: "Memory two" },
+        { file: "photos/photo3.jpg", caption: "Memory three" },
+        { file: "photos/photo4.jpg", caption: "Memory four" },
+        { file: "photos/photo5.jpg", caption: "Memory five" }
+      ],
+      letter: `Dear Akshaya,
+
+Happy Birthday! ❤️
+
+I hope this year brings you countless reasons to smile, beautiful surprises, new adventures and all the happiness you truly deserve.
+
+May you keep being your wonderful self, keep chasing the things that make you happy, and never forget how special you are to the people around you.
+
+Thank you for all the lovely moments, the laughter and the memories. I hope today reminds you how loved and appreciated you are.
+
+Wishing you a year filled with good health, peace, success, love and everything your heart has been wishing for.
+
+Have the happiest birthday!
+
+With lots of love,
+[Your name]`
+    };
+
+    document.title = `Happy Birthday, ${birthday.name}!`;
+    document.getElementById("friend-name").textContent = birthday.name;
+
+    const balloonList = document.getElementById("balloon-list");
+    const messageBox = document.getElementById("balloon-message");
+    const countLabel = document.getElementById("balloon-count");
+    const colors = ["b1", "b2", "b3", "b4"];
+    let popped = 0;
+
+    birthday.balloonMessages.forEach((message, index) => {
+      const button = document.createElement("button");
+      button.className = "balloon";
+      button.type = "button";
+      button.setAttribute("aria-label", `Pop balloon ${index + 1}`);
+      button.innerHTML = `<span class="balloon-shape ${colors[index]}">♥</span><strong>Balloon ${index + 1}</strong>`;
+      button.addEventListener("click", () => {
+        if (button.classList.contains("popped")) return;
+        button.classList.add("popped");
+        button.disabled = true;
+        popped++;
+        countLabel.textContent = `${popped} of 4 popped`;
+        messageBox.textContent = message;
+        messageBox.classList.remove("show");
+        void messageBox.offsetWidth;
+        messageBox.classList.add("show");
+      });
+      balloonList.appendChild(button);
+    });
+
+    const gallery = document.getElementById("gallery");
+    birthday.photos.forEach((photo, index) => {
+      const frame = document.createElement("div");
+      frame.className = "photo";
+      const img = document.createElement("img");
+      img.src = photo.file;
+      img.alt = photo.caption || `Birthday memory ${index + 1}`;
+      img.loading = "lazy";
+      img.onerror = () => {
+        frame.innerHTML = `<span>📷 Add your photo here<br><small>${photo.file}</small></span>`;
+      };
+      frame.appendChild(img);
+      gallery.appendChild(frame);
+    });
+
+    document.getElementById("birthday-letter").textContent = birthday.letter;
+
+    function goTo(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
